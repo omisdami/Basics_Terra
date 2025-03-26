@@ -1,7 +1,7 @@
 provider "aws" {
-    access_key = "AKIA4VDBL4UNYWNVEWMN"
-    secret_key = "SECRET_KEY_HERE"
-    region     = "us-east-2"
+  region     = "us-west-2"
+  access_key = "AKIA4VDBL4UNYWNVEWMN"
+  secret_key = "my-secret-key"
 }
 
 resource "aws_instance" "MyFirstInstnace" {

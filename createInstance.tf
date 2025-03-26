@@ -9,7 +9,7 @@ data "aws_ami" "amazon_linux" {
 }
 resource "aws_instance" "MyFirstInstnace" {
   count         = 3
-  ami           = "ami-05692172625678b4e"
+  ami           = "ami-04f167a56786e4b09"
   instance_type = "t2.micro"
 
   tags = {

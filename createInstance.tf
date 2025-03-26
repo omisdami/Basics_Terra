@@ -8,6 +8,11 @@ data "aws_ami" "amazon_linux" {
   }
 }
 resource "aws_instance" "MyFirstInstnace" {
-  ami           = data.aws_ami.amazon_linux.id
+  count         = 3
+  ami           = "ami-05692172625678b4e"
   instance_type = "t2.micro"
+
+  tags = {
+    Name = "demoinstnce-${count.index}"
+  }
 }

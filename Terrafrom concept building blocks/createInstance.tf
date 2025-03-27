@@ -1,5 +1,6 @@
 provider "aws" {
   region = "us-east-2"
+  profile = "terraform"
 }
 
 data "aws_ami" "amazon_linux" {

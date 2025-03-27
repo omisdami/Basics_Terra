@@ -1,4 +1,16 @@
+provider "aws" {
+  region = "us-east-2"
+}
 
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023*"]
+  }
+}
 resource "aws_key_pair" "levelup_key" {
     key_name = "levelup_key"
     public_key = file(var.PATH_TO_PUBLIC_KEY)

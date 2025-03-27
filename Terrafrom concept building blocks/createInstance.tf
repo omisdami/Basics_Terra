@@ -13,18 +13,6 @@ resource "aws_instance" "MyFirstInstnace" {
     Name = "custom_instance"
   }
 
-  provisioner "file" {
-      source = "installNginx.sh"
-      destination = "/tmp/installNginx.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/installNginx.sh",
-      "sudo sed -i -e 's/\r$//' /tmp/installNginx.sh",  # Remove the spurious CR characters.
-      "sudo /tmp/installNginx.sh",
-    ]
-  }
 
   connection {
     host        = coalesce(self.public_ip, self.private_ip)

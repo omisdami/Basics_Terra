@@ -1,20 +1,9 @@
 data "aws_availability_zones" "avilable" {}
 
-data "aws_ami" "latest-ubuntu" {
+data "aws_ami" "amazon_linux" {
   most_recent = true
-  owners = ["099720109477"]
-
-  filter {
-    name = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+  owners      = ["amazon"]
 }
-
 
 resource "aws_instance" "MyFirstInstnace" {
   ami           = data.aws_ami.latest-ubuntu.id

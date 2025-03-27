@@ -41,4 +41,5 @@ provisioner "file" {
     user        = var.INSTANCE_USERNAME
     private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
+  security_groups = "${var.Security_Group}"
 }

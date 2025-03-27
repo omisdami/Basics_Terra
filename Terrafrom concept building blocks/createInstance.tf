@@ -47,10 +47,10 @@ resource "aws_key_pair" "levelup_key" {
 }
 
 resource "aws_instance" "MyFirstInstance" {
-  
+   ami  = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
   key_name      = aws_key_pair.levelup_key.key_name
-  ami = data.aws_ami.amazon_linux.id
+  
 
 
   # Replace security_groups with vpc_security_group_ids
